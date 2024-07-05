@@ -31,9 +31,11 @@ return {
   -- https://github.com/catppuccin/nvim
   {
     "catppuccin/nvim",
+    event = "User LoadColorSchemes",
     name = "catppuccin",
-    priority = 1000,
-    opts = {},
+    opts = {
+      transparent_background = true,
+    },
   },
 
   -- tokyonight [theme]
@@ -42,6 +44,7 @@ return {
     "zeioth/tokyonight.nvim",
     event = "User LoadColorSchemes",
     opts = {
+      transparent = true,
       dim_inactive = false,
       styles = {
         comments = { italic = true },
@@ -239,6 +242,7 @@ return {
           end
           vim.wo[win].spell = false
         end,
+        background_colour = "none",
       }
     end,
     config = function(_, opts)
@@ -335,7 +339,7 @@ return {
           {
             condition = function() return not lib.condition.is_active() end,
             {
-              lib.component.neotree(),
+              -- lib.component.neotree(),
               lib.component.compiler_play(),
               lib.component.fill(),
               lib.component.compiler_redo(),
@@ -344,7 +348,7 @@ return {
           },
           -- Regular winbar
           {
-            lib.component.neotree(),
+            -- lib.component.neotree(),
             lib.component.compiler_play(),
             lib.component.fill(),
             lib.component.breadcrumbs(),
